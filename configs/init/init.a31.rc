@@ -1,0 +1,2 @@
+on property:ro.boot.em.model=SM-A315G
+    setprop bluetooth.device.default_name "Galaxy A31"
