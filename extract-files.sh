@@ -14,12 +14,12 @@ function blob_fixup() {
         vendor/lib*/libsec-ril*.so)
             "${PATCHELF}" --replace-needed libril.so libril-samsung.so "${2}"
             ;;
-        vendor/lib/hw/audio.primary.exynos9825.so)
+        vendor/lib/hw/audio.primary.mt6768.so)
             "${PATCHELF}" --remove-needed libaudio_soundtrigger.so "${2}"
             "${PATCHELF}" --add-needed libshim_audioparams.so "${2}"
             sed -i 's/str_parms_get_str/str_parms_get_mod/g' "${2}"
             ;;
-        vendor/lib64/libexynoscamera3.so)
+        vendor/lib64/libhwscaler_camera.mtk.so)
             xxd -p "${2}" | sed "s/cc022036/1f2003d5/g" | xxd -r -p > "${2}".patched
             mv "${2}".patched "${2}"
             ;;
@@ -35,7 +35,7 @@ fi
 set -e
 
 export DEVICE=a31
-export DEVICE_COMMON=exynos9820-common
+export DEVICE_COMMON=mt6768-common
 export VENDOR=samsung
 
 "./../../${VENDOR}/${DEVICE_COMMON}/extract-files.sh" "$@"
