@@ -14,7 +14,7 @@
 # limitations under the License.
 
 ## Inherit from the common tree
-include device/samsung/mt6768-common/BoardConfig9825-r.mk
+include device/samsung/mt6768-common/BoardConfigCommon.mk
 
 ## Inherit from the proprietary configuration
 include vendor/samsung/a31/BoardConfigVendor.mk
