@@ -20,8 +20,9 @@ function blob_fixup() {
             sed -i 's/str_parms_get_str/str_parms_get_mod/g' "${2}"
             ;;
         vendor/lib64/libhwscaler_camera.mtk.so)
-            xxd -p "${2}" | sed "s/cc022036/1f2003d5/g" | xxd -r -p > "${2}".patched
-            mv "${2}".patched "${2}"
+            # Disabled as I'm not sure if this still applies.
+            # xxd -p "${2}" | sed "s/cc022036/1f2003d5/g" | xxd -r -p > "${2}".patched
+            # mv "${2}".patched "${2}" 
             ;;
     esac
 }
